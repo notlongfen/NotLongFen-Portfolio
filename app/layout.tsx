@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   verification: {
-    google: "LfILMguhpbjgQ0mqR9y3o4EsIy6wfVxOhBRKBKdBPcQ",
+    google: "M6FKsgsu_gQmA7HGaJri3h6GBWt4UFq5grhVg_M1FEc",
   },
 };
 
