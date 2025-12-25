@@ -14,11 +14,16 @@ export function StructuredData({ type, project, edition }: StructuredDataProps) 
       ? `${siteUrl}/${edition === "cyberpunk" ? "cyberpunk/work" : "magazine"}/${project.slug}`
       : `${siteUrl}/projects/${project.slug}`;
 
-    // Extract date from stats
+    // Extract date from stats (format: MM/YYYY)
     const dateStat = project.stats.find((s) => s.label === "DATE");
-    const datePublished = dateStat
-      ? new Date(dateStat.value.split("/").reverse().join("-")).toISOString()
-      : new Date().toISOString();
+    let datePublished = new Date().toISOString();
+    if (dateStat) {
+      const [month, year] = dateStat.value.split("/");
+      if (month && year) {
+        // Create date as first day of the month
+        datePublished = new Date(parseInt(year), parseInt(month) - 1, 1).toISOString();
+      }
+    }
 
     const projectSchema = {
       "@context": "https://schema.org",

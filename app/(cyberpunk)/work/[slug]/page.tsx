@@ -1,4 +1,5 @@
 import GlitchText from "@/components/dom/GlitchText";
+import { StructuredData } from "@/components/StructuredData";
 import { projects } from "@/lib/projects";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -84,8 +85,10 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className="w-full min-h-screen bg-background text-foreground pt-32 pb-20 px-8">
-      <div className="container mx-auto max-w-4xl">
+    <>
+      <StructuredData type="project" project={project} edition="cyberpunk" />
+      <main className="w-full min-h-screen bg-background text-foreground pt-32 pb-20 px-8">
+        <div className="container mx-auto max-w-4xl">
         <Link
           href="/cyberpunk#work"
           className="inline-block mb-12 font-mono text-xs text-accent hover:underline decoration-accent/50 underline-offset-4"
@@ -177,5 +180,6 @@ export default async function ProjectPage({
         </div>
       </div>
     </main>
+    </>
   );
 }

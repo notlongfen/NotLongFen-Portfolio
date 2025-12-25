@@ -1,5 +1,5 @@
-import { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
+import { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://notlongfen.dev";
 

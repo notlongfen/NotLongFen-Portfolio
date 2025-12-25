@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     "blockchain developer",
     "web3 developer",
     "polkadot",
+    "bifrost",
+    "evm",
+    "solidity",
     "substrate",
     "rust",
     "react",
@@ -98,12 +101,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <StructuredData type="portfolio" />
-      </head>
       <body
         className={`${unbounded.variable} ${geistMono.variable} antialiased`}
       >
+        <StructuredData type="portfolio" />
         {children}
       </body>
     </html>
