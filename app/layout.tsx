@@ -1,3 +1,4 @@
+import { Analytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 import type { Metadata } from "next";
 import { Geist_Mono, Unbounded } from "next/font/google";
@@ -107,6 +108,7 @@ export default function RootLayout({
       <body
         className={`${unbounded.variable} ${geistMono.variable} antialiased`}
       >
+        <Analytics />
         <StructuredData type="portfolio" />
         {children}
       </body>

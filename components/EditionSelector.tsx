@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEditionSelection } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -51,6 +52,7 @@ export default function EditionSelector() {
         {/* Cyberpunk Button */}
         <Link
           href="/cyberpunk"
+          onClick={() => !isCyberpunk && trackEditionSelection("cyberpunk")}
           className={`relative px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 ${
             isCyberpunk && !isHome
               ? isDarkMode
@@ -76,6 +78,7 @@ export default function EditionSelector() {
         {/* Magazine Button */}
         <Link
           href="/magazine"
+          onClick={() => !isMagazine && trackEditionSelection("magazine")}
           className={`relative px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 ${
             isMagazine
               ? isDarkMode

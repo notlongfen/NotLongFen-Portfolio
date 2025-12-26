@@ -1,6 +1,7 @@
 "use client";
 
 import { CONTACT_INFO } from "@/lib/contact";
+import { trackContactFormSubmission } from "@/lib/analytics";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -65,6 +66,10 @@ export default function Contact() {
 
       setSubmitStatus("success");
       setSubmitMessage("Thank you for reaching out! Your message has been sent successfully. We'll get back to you soon.");
+      
+      // Track form submission
+      trackContactFormSubmission("magazine");
+      
       setEmail("");
       setMessage("");
       setConsent(false);

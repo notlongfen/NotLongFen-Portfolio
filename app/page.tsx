@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEditionSelection } from "@/lib/analytics";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,6 +14,9 @@ export default function HomePage() {
   const handleTransition = (edition: "cyberpunk" | "magazine", e: React.MouseEvent) => {
     e.preventDefault();
     setIsTransitioning(edition);
+    
+    // Track edition selection
+    trackEditionSelection(edition);
     
     // Navigate after animation starts
     setTimeout(() => {
