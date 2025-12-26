@@ -1,4 +1,5 @@
 import CustomCursor from "@/components/dom/CustomCursor";
+import { ErrorBoundaryWrapper } from "@/components/ErrorBoundaryWrapper";
 import Noise from "@/components/dom/Noise";
 import SmoothScroll from "@/components/dom/SmoothScroll";
 import TerminalNav from "@/components/dom/TerminalNav";
@@ -10,7 +11,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <ErrorBoundaryWrapper theme="cyberpunk">
       <Noise />
       <CustomCursor />
       <EditionSelector />
@@ -18,6 +19,6 @@ export default function Layout({
         <TerminalNav />
         {children}
       </SmoothScroll>
-    </>
+    </ErrorBoundaryWrapper>
   );
 }

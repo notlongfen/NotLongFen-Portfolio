@@ -1,4 +1,5 @@
 import SmoothScroll from "@/components/b/SmoothScroll";
+import { ErrorBoundaryWrapper } from "@/components/ErrorBoundaryWrapper";
 import EditionSelector from "@/components/EditionSelector";
 import { Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import "../globals.css";
@@ -20,14 +21,16 @@ const geistMono = Geist_Mono({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className={`${playfair.variable} ${inter.variable} ${geistMono.variable} font-sans antialiased`}
-    >
-      <EditionSelector />
-      <SmoothScroll>
-        {children}
-      </SmoothScroll>
-    </div>
+    <ErrorBoundaryWrapper theme="magazine">
+      <div
+        className={`${playfair.variable} ${inter.variable} ${geistMono.variable} font-sans antialiased`}
+      >
+        <EditionSelector />
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </div>
+    </ErrorBoundaryWrapper>
   );
 }
 
